@@ -1,0 +1,14 @@
+#set($columnCount = $model.getColumnCount() - 1)
+#set($rowCount = $model.getRowCount() - 1)
+\begin{tabular}{#foreach( $column in [0..$columnCount] )|c#end|}
+\hline
+#foreach( $column in [0..$columnCount] )
+$model.getColumnName($column) #if ($column < $columnCount) & #end
+#end
+\\
+\hline
+#foreach ($row in [0..$rowCount])
+#foreach( $column in [0..$columnCount]) $model.getValueAt($row,$column) #if  ($column < $columnCount) & #end #end \\
+#end
+\hline
+\end{tabular}

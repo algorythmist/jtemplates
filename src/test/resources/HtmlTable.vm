@@ -1,0 +1,24 @@
+#set($columnCount = $model.getColumnCount() - 1)
+#set($rowCount = $model.getRowCount() - 1)
+<html>
+<body>
+
+<table border="1" cellspacing="1">
+<tr>
+#foreach( $column in [0..$columnCount] )
+<th>$model.getColumnName($column)</th>
+#end
+</tr>
+
+#foreach ($row in [0..$rowCount])
+<tr>
+	#foreach( $column in [0..$columnCount] )
+  	<td>$model.getValueAt($row,$column)</td>
+	#end
+</tr>
+#end
+
+</table>
+
+</body>
+</html>
