@@ -30,16 +30,16 @@ public class FreemarkerRenderer extends BaseTemplateRenderer {
         return configuration;
     }
 
-    public static TemplateRenderer fromFilesystem(String templateDirectory) throws IOException  {
-    	FreemarkerRenderer renderer = new FreemarkerRenderer();
-    	renderer.configuration.setDirectoryForTemplateLoading(new File(templateDirectory));
-    	return renderer;
+    public static TemplateRenderer fromFilesystem(String templateDirectory) throws IOException {
+        FreemarkerRenderer renderer = new FreemarkerRenderer();
+        renderer.configuration.setDirectoryForTemplateLoading(new File(templateDirectory));
+        return renderer;
     }
-    
+
     public static TemplateRenderer fromClasspath(String templateDirectory) {
-    	FreemarkerRenderer renderer = new FreemarkerRenderer();
-    	renderer.configuration.setClassLoaderForTemplateLoading(ClassLoader.getSystemClassLoader(), templateDirectory);
-    	return renderer;
+        FreemarkerRenderer renderer = new FreemarkerRenderer();
+        renderer.configuration.setClassLoaderForTemplateLoading(ClassLoader.getSystemClassLoader(), templateDirectory);
+        return renderer;
     }
-    
+
 }

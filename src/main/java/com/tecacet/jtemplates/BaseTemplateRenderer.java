@@ -1,6 +1,7 @@
 package com.tecacet.jtemplates;
 
 import java.io.StringWriter;
+import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,11 +36,9 @@ public abstract class BaseTemplateRenderer implements TemplateRenderer {
     }
     
     @Override
-    public String render(String templateFile, Map<String,?> model) throws RenderException {
+    public void render(String templateFile, Map<String,?> model, Writer writer) throws RenderException {
         putAll(model);
-        StringWriter sw = new StringWriter();
-        evaluate(templateFile, sw);
-        return sw.toString();
+        evaluate(templateFile, writer);
     }
 
     @Override

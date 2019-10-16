@@ -8,10 +8,16 @@ public interface TemplateRenderer {
     /**
      * Populate the context with a named variable
      * 
-     * @param name
-     * @param value
+     * @param name unique key for this value as it appears on the template
+     * @param value the value
      */
     void put(String name, Object value);
+
+    /**
+     * Populate all values
+     * @param values
+     */
+    void putAll(Map<String, ?> values);
 
     /**
      * Clear the context
@@ -30,10 +36,10 @@ public interface TemplateRenderer {
     /**
      * Render the template as a string using a named variable
      * 
-     * @param templateFile
-     * @param name
-     * @param model
-     * @return
+     * @param templateFile the template file
+     * @param name the identifier for the value
+     * @param model the value
+     * @return a String representation of the filled in template
      * @throws RenderException
      */
     String render(String templateFile, String name, Object model) throws RenderException;
@@ -41,23 +47,22 @@ public interface TemplateRenderer {
     /**
      * Render the template as a string using a map for named objects
      * 
-     * @param templateFile
-     * @param model
-     * @return
-     * @throws RenderException
+     * @param templateFile the template file
+     * @param model the model
+     * @throws RenderException if something fails
      */
-    String render(String templateFile, Map<String,?> model) throws RenderException;
+    void render(String templateFile, Map<String,?> model, Writer writer) throws RenderException;
     
 
     /**
      * Render the template as a string
      * 
-     * @param templateFile
-     * @return
-     * @throws RenderException
+     * @param templateFile the template file
+     * @return a string containing the final output
+     * @throws RenderException if something fails
      */
     String render(String templateFile) throws RenderException;
 
-    void putAll(Map<String, ?> values);
+
 
 }
