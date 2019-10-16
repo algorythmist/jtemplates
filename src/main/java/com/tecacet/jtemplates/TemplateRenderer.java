@@ -37,6 +37,17 @@ public interface TemplateRenderer {
      * @throws RenderException
      */
     String render(String templateFile, String name, Object model) throws RenderException;
+    
+    /**
+     * Render the template as a string using a map for named objects
+     * 
+     * @param templateFile
+     * @param model
+     * @return
+     * @throws RenderException
+     */
+    String render(String templateFile, Map<String,?> model) throws RenderException;
+    
 
     /**
      * Render the template as a string

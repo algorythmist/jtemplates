@@ -24,7 +24,7 @@ public class VelocityTableMakerTest {
         TestUtil.compareLineByLine("table.tex");
 
         new File("output/table.html").delete();
-        new File("output/table.text").delete();
+        new File("output/table.tex").delete();
     }
 
 }

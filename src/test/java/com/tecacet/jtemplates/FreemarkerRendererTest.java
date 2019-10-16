@@ -9,15 +9,15 @@ public class FreemarkerRendererTest {
     @Test
     public void testRenderFromFilesystem() throws Exception {
         TemplateRenderer renderer =  FreemarkerRenderer.fromFilesystem("testfiles");
-        String str = renderer.render("mytemplate.ftl", "name", "soldier");
-        assertEquals("Hello soldier!", str);
+        String str = renderer.render("mytemplate.ftl", "name", "there");
+        assertEquals("Hello there!", str);
     }
     
     @Test
-    public void testRenderFromClasspath() throws Exception {
+    public void testRenderFromClasspath()  {
         TemplateRenderer renderer =  FreemarkerRenderer.fromClasspath("templates");
-        String str = renderer.render("mytemplate.ftl", "name", "soldier");
-        assertEquals("Hello soldier!", str);
+        String str = renderer.render("mytemplate.ftl", "name", "there");
+        assertEquals("Hello there!", str);
     }
 
 }

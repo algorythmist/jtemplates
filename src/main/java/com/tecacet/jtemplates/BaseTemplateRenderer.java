@@ -33,6 +33,14 @@ public abstract class BaseTemplateRenderer implements TemplateRenderer {
         evaluate(templateFile, sw);
         return sw.toString();
     }
+    
+    @Override
+    public String render(String templateFile, Map<String,?> model) throws RenderException {
+        putAll(model);
+        StringWriter sw = new StringWriter();
+        evaluate(templateFile, sw);
+        return sw.toString();
+    }
 
     @Override
     public String render(String templateFile) throws RenderException {

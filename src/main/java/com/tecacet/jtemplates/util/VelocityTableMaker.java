@@ -19,6 +19,7 @@ public class VelocityTableMaker {
     private final FormattedTableModel model;
 
     public VelocityTableMaker(TableModel tableModel) {
+    	
         this.model = new FormattedTableModel(tableModel);
         Properties p = new Properties();
         p.put("resource.loader", "file, class, jar");
@@ -31,13 +32,14 @@ public class VelocityTableMaker {
         }
     }
 
-    public String renderModel(String templateFile) {
+    public String renderModel(String templateFile) throws IOException {
         Template template = Velocity.getTemplate(templateFile);
         VelocityContext context = new VelocityContext();
         context.put("model", model);
-        StringWriter sw = new StringWriter();
-        template.merge(context, sw);
-        return sw.toString();
+        try (StringWriter sw = new StringWriter()) {
+        	template.merge(context, sw);
+        	return sw.toString();
+        }
     }
 
     public void renderModel(String templateFile, String outputFile) throws IOException {
