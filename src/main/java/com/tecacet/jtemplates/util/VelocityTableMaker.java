@@ -44,7 +44,9 @@ public class VelocityTableMaker {
 
     public void renderModel(String templateFile, String outputFile) throws IOException {
         String s = renderModel(templateFile);
-        PrintStream ps = new PrintStream(new File(outputFile), "UTF-8");
+        File file = new File(outputFile);
+        file.createNewFile();
+        PrintStream ps = new PrintStream(file, "UTF-8");
         ps.println(s);
         ps.close();
     }
