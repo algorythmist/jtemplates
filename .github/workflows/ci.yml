@@ -30,14 +30,3 @@ jobs:
 
     - name: Run tests
       run: mvn -B test
-
-    - name: Generate test coverage
-      run: mvn -B jacoco:report
-      if: matrix.java == '19'
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4
-      if: matrix.java == '19'
-      with:
-        file: ./target/site/jacoco/jacoco.xml
-        fail_ci_if_error: false
