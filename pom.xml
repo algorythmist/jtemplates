@@ -14,11 +14,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
+        <commons-lang3.version>3.18.0</commons-lang3.version>
         <junit.version>5.11.4</junit.version>
         <velocity.version>2.4.1</velocity.version>
         <freemarker.version>[2.3,)</freemarker.version>
         <rythm.version>1.4.1</rythm.version>
-        <mustache.version>[0.9,)</mustache.version>
+        <mustache.version>0.9.14</mustache.version>
         <maven-source.version>3.0.1</maven-source.version>
         <maven-javadoc.version>3.0.1</maven-javadoc.version>
         <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
@@ -51,6 +52,11 @@
             <artifactId>compiler</artifactId>
             <version>${mustache.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
