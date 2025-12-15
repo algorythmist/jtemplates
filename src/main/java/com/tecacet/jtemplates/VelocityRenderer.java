@@ -31,7 +31,7 @@ public class VelocityRenderer extends BaseTemplateRenderer {
     @Override
     public void clear() {
         for (Object key : velocityContext.getKeys()) {
-            velocityContext.remove(key);
+            velocityContext.remove((String) key);
         }
     }
 

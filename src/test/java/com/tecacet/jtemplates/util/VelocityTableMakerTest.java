@@ -1,13 +1,13 @@
 package com.tecacet.jtemplates.util;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import java.io.File;
 
-@Ignore //TODO: does not work on travis
+@Disabled //TODO: does not work on travis
 public class VelocityTableMakerTest {
 
     @Test
